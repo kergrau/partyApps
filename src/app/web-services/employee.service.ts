@@ -17,4 +17,7 @@ export class EmployeeService {
   createEmployee(employee){
     return this.http.post<Employee>(this.BaseUrl+"/create", employee);
   }
+  deleteEmployee(id){
+    return this.http.delete<Employee>(this.BaseUrl+"/delete/"+id);
+  }
 }

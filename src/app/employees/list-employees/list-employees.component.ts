@@ -26,6 +26,16 @@ export class ListEmployeesComponent implements OnInit {
     );
   }
 
+  Delete(element){
+    this.empService.deleteEmployee(element.id).subscribe(
+      data => {
+        alert("Employee deleted");
+        this.ListAll();
+      }
+    )
+  }
+
+
   ngOnInit() {
   this.ListAll();
   }
