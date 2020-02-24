@@ -29,7 +29,8 @@ import { MatInputModule } from '@angular/material/input';
 import { EditServiceComponent } from './services/edit-service/edit-service.component';
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
 import { FormEmployeesComponent } from './employees/form-employees/form-employees.component';
-import { EditEmployeesComponent } from './employees/edit-employees/edit-employees.component'; 
+import { EditEmployeesComponent } from './employees/edit-employees/edit-employees.component';
+import { FormPersonsComponent } from './persons/form-persons/form-persons.component'; 
 
 
 
@@ -43,7 +44,8 @@ import { EditEmployeesComponent } from './employees/edit-employees/edit-employee
     EditServiceComponent,
     ListEmployeesComponent,
     FormEmployeesComponent,
-    EditEmployeesComponent
+    EditEmployeesComponent,
+    FormPersonsComponent
   ],
   imports: [
     BrowserModule,

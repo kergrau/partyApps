@@ -12,3 +12,7 @@
 .outline{
   outline: none;
 }
+
+.flex-spacer{
+  flex-grow: 1;
+}
