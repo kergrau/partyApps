@@ -4,13 +4,15 @@ import { ListServicesComponent } from './services/list-services/list-services.co
 import { FormServicesComponent } from './services/form-services/form-services.component'
 import { EditServiceComponent } from './services/edit-service/edit-service.component'
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
+import { FormEmployeesComponent } from './employees/form-employees/form-employees.component';
 
 
 const routes: Routes = [
   {path: 'list-services', component: ListServicesComponent},
   {path: 'form-services', component: FormServicesComponent},
   {path: 'edit-services', component: EditServiceComponent},
-  {path: 'list-employees', component: ListEmployeesComponent}
+  {path: 'list-employees', component: ListEmployeesComponent},
+  {path: 'form-employees', component: FormEmployeesComponent}
 ];
 
 @NgModule({
@@ -22,5 +24,6 @@ export const routingComponents = [
   ListServicesComponent,
   FormServicesComponent,
   EditServiceComponent,
-  ListEmployeesComponent
+  ListEmployeesComponent,
+  FormEmployeesComponent
 ]
