@@ -16,6 +16,7 @@ export class ListServicesComponent implements OnInit {
 
   displayedColumns: string[] = ['No', 'name', 'Actions'];
   dataSource = new MatTableDataSource();
+  
   listAll(){
     this.serService.getListServices().subscribe(
       data => {

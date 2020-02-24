@@ -26,7 +26,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
-import { EditServiceComponent } from './services/edit-service/edit-service.component'; 
+import { EditServiceComponent } from './services/edit-service/edit-service.component';
+import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
+import { FormEmployeesComponent } from './employees/form-employees/form-employees.component'; 
 
 
 
@@ -37,7 +39,9 @@ import { EditServiceComponent } from './services/edit-service/edit-service.compo
     MenuComponent,
     ListServicesComponent,
     FormServicesComponent,
-    EditServiceComponent
+    EditServiceComponent,
+    ListEmployeesComponent,
+    FormEmployeesComponent
   ],
   imports: [
     BrowserModule,
