@@ -20,4 +20,7 @@ export class EmployeeService {
   deleteEmployee(id){
     return this.http.delete<Employee>(this.BaseUrl+"/delete/"+id);
   }
+  updateEmployee(employee){
+    return this.http.put<Employee>(this.BaseUrl+"/edit", employee);
+  }
 }

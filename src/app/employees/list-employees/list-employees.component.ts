@@ -35,6 +35,12 @@ export class ListEmployeesComponent implements OnInit {
     )
   }
 
+  Edit(element){
+    list.push(element);
+    this.router.navigate(["edit-employees"]);
+  }
+
+
 
   ngOnInit() {
   this.ListAll();
