@@ -1,0 +1,18 @@
+.table-center{
+  width: 90%;
+  margin: auto;
+ }
+
+.table-list{
+  width: 100%;
+  margin: auto;
+}
+
+.bt-create{
+  float: right;
+}
+
+.bt-edit{
+  margin-right: 5px;
+  margin-top: 1px;
+}

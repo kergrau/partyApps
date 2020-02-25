@@ -7,6 +7,9 @@ import { ListEmployeesComponent } from './employees/list-employees/list-employee
 import { FormEmployeesComponent } from './employees/form-employees/form-employees.component';
 import { EditEmployeesComponent } from './employees/edit-employees/edit-employees.component';
 import { FormPersonsComponent } from './persons/form-persons/form-persons.component';
+import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
+import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
+
 
 
 const routes: Routes = [
@@ -16,7 +19,9 @@ const routes: Routes = [
   {path: 'list-employees', component: ListEmployeesComponent},
   {path: 'form-employees', component: FormEmployeesComponent},
   {path: 'edit-employees', component: EditEmployeesComponent},
-  {path: 'form-persons', component: FormPersonsComponent}
+  {path: 'form-persons', component: FormPersonsComponent},
+  {path: 'edit-persons', component: EditPersonsComponent},
+  {path: 'list-persons', component: ListPersonsComponent}
 ];
 
 @NgModule({
@@ -31,5 +36,7 @@ export const routingComponents = [
   ListEmployeesComponent,
   FormEmployeesComponent,
   EditEmployeesComponent,
-  FormPersonsComponent
+  FormPersonsComponent,
+  EditPersonsComponent,
+  ListPersonsComponent
 ]

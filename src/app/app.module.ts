@@ -14,6 +14,11 @@ import { NavComponent } from './nav/nav.component';
 import { MenuComponent } from './menu/menu.component';
 import { ListServicesComponent } from './services/list-services/list-services.component';
 import { FormServicesComponent } from './services/form-services/form-services.component';
+import { EditServiceComponent } from './services/edit-service/edit-service.component';
+import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
+import { FormEmployeesComponent } from './employees/form-employees/form-employees.component';
+import { EditEmployeesComponent } from './employees/edit-employees/edit-employees.component';
+import { FormPersonsComponent } from './persons/form-persons/form-persons.component';
 
 
 // Angular Material Component
@@ -26,12 +31,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
-import { EditServiceComponent } from './services/edit-service/edit-service.component';
-import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
-import { FormEmployeesComponent } from './employees/form-employees/form-employees.component';
-import { EditEmployeesComponent } from './employees/edit-employees/edit-employees.component';
-import { FormPersonsComponent } from './persons/form-persons/form-persons.component'; 
-
+import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
+import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
 
 
 @NgModule({
@@ -45,7 +46,10 @@ import { FormPersonsComponent } from './persons/form-persons/form-persons.compon
     ListEmployeesComponent,
     FormEmployeesComponent,
     EditEmployeesComponent,
-    FormPersonsComponent
+    FormPersonsComponent,
+    EditPersonsComponent,
+    ListPersonsComponent
+ 
   ],
   imports: [
     BrowserModule,

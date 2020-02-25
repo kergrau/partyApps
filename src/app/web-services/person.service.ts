@@ -13,4 +13,10 @@ export class PersonService {
   createPerson(person){
     return this.http.post<Person>(this.BaseUrl+"/create", person);
   }
+  editPerson(person){
+    return this.http.put<Person>(this.BaseUrl+"/edit", person);
+  }
+  getlistAll(){
+    return this.http.get<Person[]>(this.BaseUrl+"/listPerson");
+  }
 }
