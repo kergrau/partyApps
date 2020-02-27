@@ -4,7 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // My Services
-import { ServiceServicesService } from './web-services/service-services.service'
+import { ServiceServicesService } from './web-services/service-services.service';
+import { PersonService } from './web-services/person.service';
+import { EmployeeService } from './web-services/employee.service';
 
 // My Components
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +21,9 @@ import { ListEmployeesComponent } from './employees/list-employees/list-employee
 import { FormEmployeesComponent } from './employees/form-employees/form-employees.component';
 import { EditEmployeesComponent } from './employees/edit-employees/edit-employees.component';
 import { FormPersonsComponent } from './persons/form-persons/form-persons.component';
+import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
+import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
+import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
 
 
 // Angular Material Component
@@ -31,8 +36,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
-import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
-import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 @NgModule({
@@ -48,7 +53,8 @@ import { ListPersonsComponent } from './persons/list-persons/list-persons.compon
     EditEmployeesComponent,
     FormPersonsComponent,
     EditPersonsComponent,
-    ListPersonsComponent
+    ListPersonsComponent,
+    FormOrdersComponent
  
   ],
   imports: [
@@ -66,9 +72,13 @@ import { ListPersonsComponent } from './persons/list-persons/list-persons.compon
     MatTableModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
-  providers: [ ServiceServicesService],
+  providers: [ 
+  ServiceServicesService,
+  PersonService,
+  EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

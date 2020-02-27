@@ -1,0 +1,46 @@
+@import "~leaflet/dist/leaflet.css";
+
+.m-card {
+  max-width: calc(98% - 60px);
+  margin: auto;
+  padding: 0px, 0px, 25px, 0px;
+  margin-top: 20px;
+}
+.m-card-h {
+  background-color: #eee;
+}
+
+.m-card-t {
+  margin: 15px 0px !important;
+  font-size: 18px;
+}
+
+ /deep/ .mat-card-header-text{
+  margin: auto !important;
+}
+
+.inp-register {
+  font-size: 13px;
+}
+
+.form-register{
+  text-align: center;
+  margin-top: 20px !important;
+}
+
+.m-card-act {
+  text-align: center;
+  padding: 0px;
+  padding-top: 5px;
+}
+
+.btn-reg {
+  font-size: 13px;
+  padding: 0px 22px;
+}
+
+#mymap {
+  height: 380px;
+  width: 870px;
+  align-items: center;
+}

@@ -1,0 +1,26 @@
+<mat-card class="m-card">
+  <mat-card-header class="m-card-h">
+    <mat-card-title class="m-card-t">New Service</mat-card-title>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <form class="form-register">
+      <p>
+        <mat-form-field>
+          <mat-label>Select an service</mat-label>
+          <mat-select [(ngModel)]="orders.serviceid" name="serviceid" required>
+            <mat-option *ngFor="let service of services" value={{service.id}}>{{service.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>   
+  
+       <div id="mymap"></div>
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions class="m-card-act">
+    <button class="btn-reg" mat-raised-button color="primary" (click)="Create()">Create</button>
+  </mat-card-actions>
+</mat-card>
+    

@@ -9,6 +9,7 @@ import { EditEmployeesComponent } from './employees/edit-employees/edit-employee
 import { FormPersonsComponent } from './persons/form-persons/form-persons.component';
 import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
 import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
+import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
 
 
 
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path: 'edit-employees', component: EditEmployeesComponent},
   {path: 'form-persons', component: FormPersonsComponent},
   {path: 'edit-persons', component: EditPersonsComponent},
-  {path: 'list-persons', component: ListPersonsComponent}
+  {path: 'list-persons', component: ListPersonsComponent},
+  {path: 'form-orders', component: FormOrdersComponent}
+
 ];
 
 @NgModule({
@@ -38,5 +41,6 @@ export const routingComponents = [
   EditEmployeesComponent,
   FormPersonsComponent,
   EditPersonsComponent,
-  ListPersonsComponent
+  ListPersonsComponent,
+  FormOrdersComponent
 ]
