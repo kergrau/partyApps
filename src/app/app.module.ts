@@ -24,7 +24,8 @@ import { FormPersonsComponent } from './persons/form-persons/form-persons.compon
 import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
 import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
 import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
-
+import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
+import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
 
 // Angular Material Component
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -39,6 +40,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
 
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { MatSelectModule } from '@angular/material/select';
     FormPersonsComponent,
     EditPersonsComponent,
     ListPersonsComponent,
-    FormOrdersComponent
+    FormOrdersComponent,
+    ListOrdersComponent,
+    EditOrdersComponent
  
   ],
   imports: [
@@ -73,7 +77,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    StarRatingModule.forRoot()
   ],
   providers: [ 
   ServiceServicesService,

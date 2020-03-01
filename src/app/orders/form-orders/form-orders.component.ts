@@ -33,6 +33,7 @@ export class FormOrdersComponent implements AfterViewInit {
       accessToken: 'pk.eyJ1Ijoia2VyZ3JhdSIsImEiOiJjazcyYXZkZXkwMGQ2M2txZ3A1eG50YjRwIn0.JBC6g_7U5GkxjuG9EpC05Q'
     }).addTo(this.map);
   }
+  
   private services: Service[];
   
   orders = {
