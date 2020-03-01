@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/service'
 import { ServiceServicesService } from 'src/app/web-services/service-services.service';
+import { OrderService } from 'src/app/web-services/order.service';
 import * as L from 'node_modules/leaflet';
-import { Order } from '../order';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { Order } from '../order';
 })
 export class FormOrdersComponent implements AfterViewInit {
   
-  constructor(private serService: ServiceServicesService) { }
-  private map;
+  constructor(private serService: ServiceServicesService,
+    private ordService: OrderService, private router: Router) { }
   
+  private map;
     
   private initMap(): void {
     this.map = L.map('mymap', {
@@ -32,46 +34,64 @@ export class FormOrdersComponent implements AfterViewInit {
     }).addTo(this.map);
   }
   private services: Service[];
-  private orders: Order = new Order();
   
-  
-  
-  
-  Create(){
-    console.log(this.map);
-   
-  }
+  orders = {
+    serviceid: 0,
+    latitude: "",
+    longitude: ""
+  };
 
-  coordinate;
+  private marker;
+  /*
   onMapClick(e) {
     //console.log(this.map)
+    
     let popup = L.popup()
     .setLatLng(e.latlng)
-    this.coordinate = popup.getLatLng();
+   // return this.coordinate = popup.getLatLng();
+    //this.coordinate = popup.getLatLng();
+    //console.log(this.coordinate);
   
-    console.log(this.coordinate);
-    L.marker([this.coordinate.lat, this.coordinate.lng]).addTo(this.map);
   }
-
+  */
+  Create(){
+    this.orders.latitude = this.marker.getLatLng().lat;
+    this.orders.longitude = this.marker.getLatLng().lng;
+    this.ordService.createOrder(this.orders).subscribe(
+      data => {
+        alert("Created");
+        this.router.navigate(['/']);
+      }
+    );
+  }
+  
+  /*
   marker(lat, lng){
-    L.marker([lat, lng]).addTo(this.map);
+    return L.marker([lat, lng]).addTo(this.map);
   }
 
- 
 
+ this method show a cursor when you click but is not work well
+  mappy(){
+    let coo = this.map.on('click', this.onMapClick);
+    //console.log(this.coo);
+    this.marker(coo.coordinate.lat, coo.coordinate.lng)
+    //console.log(this.map);
+  }
+  */
 
-  
   ngAfterViewInit() {
 
     this.serService.getListServices().subscribe(
-      data =>{
+      data => {
         this.services = data;
         console.log(this.services);
       }
     );
       
     this.initMap();
-    this.map.on('click', this.onMapClick);
+    this.marker = L.marker([11.000000, -74.806984], {draggable: true}).addTo(this.map);
+    
   }
 
 }
