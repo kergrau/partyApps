@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Rating service</h1>
+<div mat-dialog-content>
+  <p>How would you rate our service?</p>
+  <mat-form-field>
+    <mat-label>Rate</mat-label>
+    <input type="number" min="0" max="5" placeholder="rate us" matInput [(ngModel)]="data.rating"
+    required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.rating" cdkFocusInitial>Ok</button>
+</div>

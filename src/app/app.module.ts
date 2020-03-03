@@ -26,6 +26,8 @@ import { ListPersonsComponent } from './persons/list-persons/list-persons.compon
 import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
 import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
+import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
+import { RatingDialog } from './orders/my-orders/my-orders.component';
 
 // Angular Material Component
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -38,9 +40,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDialogModule } from '@angular/material/dialog'; 
 
 import { StarRatingModule } from 'angular-star-rating';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { StarRatingModule } from 'angular-star-rating';
     ListPersonsComponent,
     FormOrdersComponent,
     ListOrdersComponent,
-    EditOrdersComponent
+    EditOrdersComponent,
+    MyOrdersComponent,
+    RatingDialog
  
   ],
   imports: [
@@ -78,7 +83,11 @@ import { StarRatingModule } from 'angular-star-rating';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    MatDialogModule
+  ],
+  entryComponents: [
+    RatingDialog
   ],
   providers: [ 
   ServiceServicesService,

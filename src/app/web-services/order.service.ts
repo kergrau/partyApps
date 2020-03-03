@@ -20,7 +20,7 @@ export class OrderService {
   }
 
   listActiveOrdersById(id){
-    return this.http.get<Order>(this.BaseUrl+"/listById"+id);
+    return this.http.get<Order[]>(this.BaseUrl+"/listById/"+id);
   }
 
   createOrder(order){
@@ -29,5 +29,9 @@ export class OrderService {
 
   editOrder(order){
     return this.http.put<Order>(this.BaseUrl+"/edit", order);
+  }
+  
+  closeOrder(order){
+    return this.http.put<Order>(this.BaseUrl+"/close", order);
   }
 }

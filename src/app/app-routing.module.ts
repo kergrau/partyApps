@@ -12,6 +12,7 @@ import { ListPersonsComponent } from './persons/list-persons/list-persons.compon
 import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
 import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
+import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'list-persons', component: ListPersonsComponent},
   {path: 'form-orders', component: FormOrdersComponent},
   {path: 'list-orders', component: ListOrdersComponent},
-  {path: 'edit-orders', component: EditOrdersComponent}
+  {path: 'edit-orders', component: EditOrdersComponent},
+  {path: 'my-orders', component: MyOrdersComponent}
 
 ];
 
@@ -47,5 +49,6 @@ export const routingComponents = [
   ListPersonsComponent,
   FormOrdersComponent,
   ListOrdersComponent,
-  EditOrdersComponent
+  EditOrdersComponent,
+  MyOrdersComponent
 ]
