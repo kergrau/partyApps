@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Order } from '../orders/order';
+import { Orderemployee } from '../orders/orderemployee';
+
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +35,9 @@ export class OrderService {
   
   closeOrder(order){
     return this.http.put<Order>(this.BaseUrl+"/close", order);
+  }
+  
+  assignPersonal(orderemployee){
+    return this.http.post<Orderemployee[]>(this.BaseUrl+"/assign",orderemployee);
   }
 }

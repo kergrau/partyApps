@@ -30,7 +30,6 @@ export class MyOrdersComponent implements OnInit {
 
   Close(element){
     this.openDialog(element);
-    console.log(element);
   }
 
   rating;

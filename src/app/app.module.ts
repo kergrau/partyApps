@@ -24,7 +24,7 @@ import { FormPersonsComponent } from './persons/form-persons/form-persons.compon
 import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
 import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
 import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
-import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
+import { ListOrdersComponent, AddPersonalDialog } from './orders/list-orders/list-orders.component';
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { RatingDialog } from './orders/my-orders/my-orders.component';
@@ -63,7 +63,8 @@ import { StarRatingModule } from 'angular-star-rating';
     ListOrdersComponent,
     EditOrdersComponent,
     MyOrdersComponent,
-    RatingDialog
+    RatingDialog,
+    AddPersonalDialog
  
   ],
   imports: [
@@ -87,7 +88,8 @@ import { StarRatingModule } from 'angular-star-rating';
     MatDialogModule
   ],
   entryComponents: [
-    RatingDialog
+    RatingDialog,
+    AddPersonalDialog
   ],
   providers: [ 
   ServiceServicesService,

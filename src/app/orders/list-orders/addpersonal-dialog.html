@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Add Personal</h1>
+<div mat-dialog-content>
+  <p>Add Personal to this order</p>
+  <mat-form-field>
+    <mat-label>Employees</mat-label>
+    <mat-select [(ngModel)]="data.employeeid" multiple>
+      <mat-option *ngFor="let employee of emp" [value]="employee.id">{{employee.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.employeeid" cdkFocusInitial>Ok</button>
+</div>
