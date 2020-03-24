@@ -43,6 +43,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog'; 
 
 import { StarRatingModule } from 'angular-star-rating';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { StarRatingModule } from 'angular-star-rating';
     EditOrdersComponent,
     MyOrdersComponent,
     RatingDialog,
-    AddPersonalDialog
+    AddPersonalDialog,
+    LoginComponent
  
   ],
   imports: [

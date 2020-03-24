@@ -13,6 +13,7 @@ import { FormOrdersComponent } from './orders/form-orders/form-orders.component'
 import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'form-orders', component: FormOrdersComponent},
   {path: 'list-orders', component: ListOrdersComponent},
   {path: 'edit-orders', component: EditOrdersComponent},
-  {path: 'my-orders', component: MyOrdersComponent}
+  {path: 'my-orders', component: MyOrdersComponent},
+  {path: 'login', component: LoginComponent}
 
 ];
 
@@ -50,5 +52,6 @@ export const routingComponents = [
   FormOrdersComponent,
   ListOrdersComponent,
   EditOrdersComponent,
-  MyOrdersComponent
+  MyOrdersComponent,
+  LoginComponent
 ]
