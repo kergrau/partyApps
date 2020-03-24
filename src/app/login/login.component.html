@@ -9,16 +9,18 @@
       <p>
         <mat-form-field class="inp-register" appearance="legacy">
           <mat-label>Name</mat-label>
-          <input class="input" matInput placeholder="Enter your username" name="username"
-           autofocus required>
+          <input [(ngModel)]="persons.email" class="input" 
+            matInput placeholder="Enter your username" name="email"
+            autofocus required>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field class="inp-register" appearance="legacy">
           <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" name="password"
-             required>
+            <input [(ngModel)]="persons.password" matInput 
+              [type]="hide ? 'password' : 'text'" placeholder="Enter your password"
+              name="password" required>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
@@ -28,6 +30,6 @@
   </mat-card-content>
 
   <mat-card-actions class="m-card-act">
-    <button class="btn-reg" mat-raised-button color="primary" (click)="Create()">Create</button>
+    <button class="btn-reg" mat-raised-button color="primary" (click)="login()">Create</button>
   </mat-card-actions>
 </mat-card>

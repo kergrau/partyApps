@@ -9,10 +9,23 @@
     </ul>
 
     <div class="flex-spacer"></div>
-    <button mat-button  class="outline title" routerLink="/login">
+    <button *ngIf="!authService.isAuthenticated()" mat-button  class="outline title" routerLink="/login">
       Sign in
       <i class="material-icons">account_circle</i>
     </button>
+
+    <button *ngIf="authService.isAuthenticated()" mat-button [matMenuTriggerFor]="menu">
+      {{authService.person.name}}
+      <span class="material-icons">
+        keyboard_arrow_down
+      </span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        Sign out
+      </button>
+    </mat-menu>
+
     
   </mat-toolbar-row>
 </mat-toolbar>

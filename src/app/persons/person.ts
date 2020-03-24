@@ -6,4 +6,5 @@ export class Person {
   email: string;
   password: string;
   admin: string;
+  roles: String[] = [];
 }

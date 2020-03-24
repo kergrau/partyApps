@@ -32,7 +32,8 @@ export class EditPersonsComponent implements OnInit {
         phone: element.phone,
         email: element.email,
         password: element.password,
-        admin: element.admin
+        admin: element.admin,
+        roles: element.roles
       }
     });
   }
