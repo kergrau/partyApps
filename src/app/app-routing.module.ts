@@ -14,15 +14,17 @@ import { ListOrdersComponent } from './orders/list-orders/list-orders.component'
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
+import { GuardsGuard } from './guards.guard';
+import { RoleguardGuard } from './roleguard.guard';
 
 
 const routes: Routes = [
   {path: 'list-services', component: ListServicesComponent},
   {path: 'form-services', component: FormServicesComponent},
   {path: 'edit-services', component: EditServiceComponent},
-  {path: 'list-employees', component: ListEmployeesComponent},
-  {path: 'form-employees', component: FormEmployeesComponent},
-  {path: 'edit-employees', component: EditEmployeesComponent},
+  {path: 'list-employees', component: ListEmployeesComponent, canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'form-employees', component: FormEmployeesComponent, canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'edit-employees', component: EditEmployeesComponent, canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
   {path: 'form-persons', component: FormPersonsComponent},
   {path: 'edit-persons', component: EditPersonsComponent},
   {path: 'list-persons', component: ListPersonsComponent},

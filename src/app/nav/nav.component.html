@@ -2,7 +2,7 @@
   <mat-toolbar-row>
 
     <ul class="ul">
-      <li><app-menu></app-menu></li>
+      <li *ngIf="authService.hasRole('ROLE_ADMIN')"><app-menu></app-menu></li>
       <li>{{ title }}</li>
       <li><button mat-button class="outline title" routerLink="/form-orders" >Order</button></li>
       <li><button mat-button class="outline title" routerLink="/my-orders" >MyOrders</button></li>

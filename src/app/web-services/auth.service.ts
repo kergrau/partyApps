@@ -16,8 +16,7 @@ export class AuthService {
     if (this._person != null) {
       return this._person;
       
-    } else if(this._person != null && 
-      sessionStorage.getItem('person') != null) {
+    } else if(sessionStorage.getItem('person') != null) {
 
         this._person = JSON.parse(sessionStorage.getItem('person')) as Person;
         return this._person;
@@ -30,10 +29,9 @@ export class AuthService {
     if (this._token != null) {
       return this._token;
       
-    } else if(this._token != null && 
-      sessionStorage.getItem('token') != null) {
+    } else if(sessionStorage.getItem('token') != null) {
 
-        this._token = sessionStorage.getItem('person');
+        this._token = sessionStorage.getItem('token');
         return this._token;
     }
     
@@ -87,6 +85,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
+    console.log(this.token);
     let payload = this.getPayload(this.token);
     if(payload != null && payload.user_name && payload.user_name.length > 0){
       return true;
@@ -100,5 +99,12 @@ export class AuthService {
     sessionStorage.clear();
     sessionStorage.removeItem('person');
     sessionStorage.removeItem('token');
+  }
+
+  hasRole(role: string): boolean{
+    if(this.person.roles.includes(role)){
+      return true;
+    }
+    return false;
   }
 }
