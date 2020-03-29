@@ -14,24 +14,35 @@ import { ListOrdersComponent } from './orders/list-orders/list-orders.component'
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
-import { GuardsGuard } from './guards.guard';
 import { RoleguardGuard } from './roleguard.guard';
 
 
 const routes: Routes = [
-  {path: 'list-services', component: ListServicesComponent},
-  {path: 'form-services', component: FormServicesComponent},
-  {path: 'edit-services', component: EditServiceComponent},
-  {path: 'list-employees', component: ListEmployeesComponent, canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
-  {path: 'form-employees', component: FormEmployeesComponent, canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
-  {path: 'edit-employees', component: EditEmployeesComponent, canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'list-services', component: ListServicesComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'form-services', component: FormServicesComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'edit-services', component: EditServiceComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'list-employees', component: ListEmployeesComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'form-employees', component: FormEmployeesComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'edit-employees', component: EditEmployeesComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
   {path: 'form-persons', component: FormPersonsComponent},
-  {path: 'edit-persons', component: EditPersonsComponent},
-  {path: 'list-persons', component: ListPersonsComponent},
-  {path: 'form-orders', component: FormOrdersComponent},
-  {path: 'list-orders', component: ListOrdersComponent},
-  {path: 'edit-orders', component: EditOrdersComponent},
-  {path: 'my-orders', component: MyOrdersComponent},
+  {path: 'edit-persons', component: EditPersonsComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_USER'}},
+  {path: 'list-persons', component: ListPersonsComponent, 
+  canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'form-orders', component: FormOrdersComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_USER'}},
+  {path: 'list-orders', component: ListOrdersComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'edit-orders', component: EditOrdersComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
+  {path: 'my-orders', component: MyOrdersComponent,
+   canActivate:[ RoleguardGuard], data: {role: 'ROLE_USER'}},
   {path: 'login', component: LoginComponent}
 
 ];

@@ -16,7 +16,7 @@ export class EmployeeService {
 
   private BaseUrl = "http://localhost:9090/employee";
     private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-
+/*
   private isUnauthorized(error): boolean{
     if(error.status == 401){
       if(this.authService.isAuthenticated()){
@@ -41,17 +41,17 @@ export class EmployeeService {
     }
     return this.httpHeaders;
   }
-
+*/
   getListAll(): Observable<Employee[]>{
     return this.http.get<Employee[]>(this.BaseUrl+"/listAll",
-     {headers: this.addAuthorization()}).pipe(catchError(error => {
+     /*{headers: this.addAuthorization()}*/)/*.pipe(catchError(error => {
       this.isUnauthorized(error);
       return throwError(error);
-    } ));
+    } ))*/;
   }
   createEmployee(employee: Employee): Observable<Employee>{
     return this.http.post<Employee>(this.BaseUrl+"/create", employee,
-      {headers: this.addAuthorization()}).pipe(
+      /*{headers: this.addAuthorization()}*/)/*.pipe(
       catchError(
         error => {
           if (this.isUnauthorized(error)){
@@ -59,12 +59,12 @@ export class EmployeeService {
           }
         }
       )
-    );
+    )*/;
       
   }
   deleteEmployee(id): Observable<any>{
     return this.http.delete<Employee>(this.BaseUrl+"/delete/"+id,
-      {headers: this.addAuthorization()}).pipe(
+      /*{headers: this.addAuthorization()}*/)/*.pipe(
       catchError(
         error => {
           if (this.isUnauthorized(error)){
@@ -72,11 +72,11 @@ export class EmployeeService {
           }
         }
       )
-    );
+    )*/;
   }
   updateEmployee(employee): Observable<Employee>{
     return this.http.put<Employee>(this.BaseUrl+"/edit", employee,
-    {headers: this.addAuthorization()}).pipe(
+    /*{headers: this.addAuthorization()}*/)/*.pipe(
       catchError(
         error => {
           if (this.isUnauthorized(error)){
@@ -84,7 +84,7 @@ export class EmployeeService {
           }
         }
       )
-    );
+    )*/;
   }
 
 }

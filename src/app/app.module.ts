@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // My Services
@@ -28,6 +28,9 @@ import { ListOrdersComponent, AddPersonalDialog } from './orders/list-orders/lis
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { RatingDialog } from './orders/my-orders/my-orders.component';
+import { LoginComponent } from './login/login.component';
+import { TokenInterceptor } from './interceptor/token.interceptor';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 // Angular Material Component
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -43,7 +46,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog'; 
 
 import { StarRatingModule } from 'angular-star-rating';
-import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -96,7 +99,10 @@ import { LoginComponent } from './login/login.component';
   providers: [ 
   ServiceServicesService,
   PersonService,
-  EmployeeService],
+  EmployeeService,
+  { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
