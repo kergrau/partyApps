@@ -3,6 +3,7 @@ import list from 'src/app/list.json';
 import { Person} from '../person';
 import { PersonService } from 'src/app/web-services/person.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/web-services/auth.service';
 
 @Component({
   selector: 'app-edit-persons',
@@ -12,7 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditPersonsComponent implements OnInit {
 
   private persons: Person = new Person();
-  constructor(private perService: PersonService, private snackBar: MatSnackBar) { }
+  constructor(private perService: PersonService, private snackBar: MatSnackBar,
+    private authService: AuthService) { }
 
   hide = true;
   

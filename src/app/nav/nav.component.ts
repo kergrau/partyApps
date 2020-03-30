@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../web-services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-nav',
@@ -9,11 +10,20 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+    private snackBar: MatSnackBar) { }
 
+  SnackyLogout(){
+    this.snackBar.open('You have signed out', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snacky']
+    });
+  }
+  
   logout(){
     this.authService.logout();
-    alert("You have signed out");
+    this.SnackyLogout()
     this.router.navigate(['/']);
   }
 

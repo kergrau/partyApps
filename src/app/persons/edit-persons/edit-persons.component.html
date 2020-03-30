@@ -52,7 +52,9 @@
   </mat-card-content>
 
   <mat-card-actions class="m-card-act">
-    <button class="btn-reg btn-can" mat-raised-button routerLink="/list-persons">Cancel</button>
+    <button *ngIf="authService.hasRole('ROLE_ADMIN')" class="btn-reg btn-can"
+     mat-raised-button routerLink="/list-persons">Cancel</button>
+    
     <button class="btn-reg" mat-raised-button color="primary" (click)="Update()">Update</button>
   </mat-card-actions>
 </mat-card>

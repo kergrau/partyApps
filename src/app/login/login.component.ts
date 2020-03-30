@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
     this.persons = new Person;
   }
 
+  hide = true;
+
   SnackyLogin(){
     this.snackBar.open('Welcome to partyApps', 'Close', {
       duration: 3000,
