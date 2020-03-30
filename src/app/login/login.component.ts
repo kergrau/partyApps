@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../persons/person';
 import { AuthService } from 'src/app/web-services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -13,8 +14,17 @@ export class LoginComponent implements OnInit {
 
   persons: Person;
 
-  constructor(private router: Router, private authService: AuthService) { 
+  constructor(private router: Router, private authService: AuthService,
+    private snackBar: MatSnackBar) { 
     this.persons = new Person;
+  }
+
+  SnackyLogin(){
+    this.snackBar.open('Welcome to partyApps', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snacky']
+    });
   }
 
   login(){
@@ -29,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.authService.savePerson(response.access_token);
         this.authService.saveToken(response.access_token);
         this.router.navigate(['/']);
-        alert("You have started session");
+        this.SnackyLogin();
       },
       error =>{
         if (error.status == 400){
