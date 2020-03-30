@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import list from 'src/app/list.json';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/web-services/employee.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { EmployeeService } from 'src/app/web-services/employee.service';
 })
 export class ListEmployeesComponent implements OnInit {
 
-  constructor(private router: Router, private empService: EmployeeService) { }
+  constructor(private router: Router, private empService: EmployeeService,
+    private snackBar: MatSnackBar) { }
 
   displayedColumns: string[] = ['No', 'name', 'surname', 'phone',
   'email', 'Actions'];
@@ -26,10 +28,18 @@ export class ListEmployeesComponent implements OnInit {
     );
   }
 
+  SnackyDelete(){
+    this.snackBar.open('Deleted', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snacky']
+    });
+  }
+
   Delete(element){
     this.empService.deleteEmployee(element.id).subscribe(
       data => {
-        alert("Employee deleted");
+        this.SnackyDelete();
         this.ListAll();
       }
     )

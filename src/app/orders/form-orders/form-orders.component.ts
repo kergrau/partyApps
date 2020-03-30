@@ -5,6 +5,7 @@ import { OrderService } from 'src/app/web-services/order.service';
 import * as L from 'node_modules/leaflet';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/web-services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class FormOrdersComponent implements AfterViewInit {
   
   constructor(private serService: ServiceServicesService,
     private ordService: OrderService, private router: Router,
-    private authService:AuthService) { }
+    private authService:AuthService, private snackBar: MatSnackBar) { }
   
   private map;
     
@@ -58,13 +59,22 @@ export class FormOrdersComponent implements AfterViewInit {
   
   }
   */
+  
+  SnackyCreate(){
+    this.snackBar.openFromComponent(SnackyComponent, {
+      duration: 3000,
+      verticalPosition: 'top',
+    });
+  }
+
   Create(){
     this.orders.latitude = this.marker.getLatLng().lat;
     this.orders.longitude = this.marker.getLatLng().lng;
     this.orders.clientid = this.authService.getIdPerson(this.authService.token);
     this.ordService.createOrder(this.orders).subscribe(
       data => {
-        alert("Created");
+       
+        this.SnackyCreate();
         this.router.navigate(['/']);
       }
     );
@@ -99,3 +109,14 @@ export class FormOrdersComponent implements AfterViewInit {
   }
 
 }
+
+@Component({
+  selector: 'snacky-component-snack',
+  templateUrl: 'snacky-component-snack.html',
+  styles: [`
+    .snacky {
+      color: hotpink;
+    }
+  `],
+})
+export class SnackyComponent {}

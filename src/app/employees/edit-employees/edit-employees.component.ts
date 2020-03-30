@@ -3,6 +3,7 @@ import { Employee } from '../employee';
 import { EmployeeService } from 'src/app/web-services/employee.service';
 import { Router } from '@angular/router';
 import list from 'src/app/list.json';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-employees',
@@ -12,12 +13,21 @@ import list from 'src/app/list.json';
 export class EditEmployeesComponent implements OnInit {
 
   private employees: Employee = new Employee();
-  constructor(private empService: EmployeeService, private router: Router) { }
+  constructor(private empService: EmployeeService, private router: Router,
+    private snackBar: MatSnackBar) { }
+
+    SnackyUpdate(){
+      this.snackBar.open('Updated', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: ['snacky']
+      });
+    }
 
   Update(){
     this.empService.updateEmployee(this.employees)
     .subscribe(data => {
-      alert("Updated")
+      this.SnackyUpdate();
       this.router.navigate(['list-employees']);
     });
   }

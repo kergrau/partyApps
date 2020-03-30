@@ -31,6 +31,7 @@ import { RatingDialog } from './orders/my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { SnackyComponent } from './orders/form-orders/form-orders.component';
 
 // Angular Material Component
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -44,6 +45,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { StarRatingModule } from 'angular-star-rating';
 
@@ -69,7 +71,8 @@ import { StarRatingModule } from 'angular-star-rating';
     MyOrdersComponent,
     RatingDialog,
     AddPersonalDialog,
-    LoginComponent
+    LoginComponent,
+    SnackyComponent
  
   ],
   imports: [
@@ -90,11 +93,13 @@ import { StarRatingModule } from 'angular-star-rating';
     MatInputModule,
     MatSelectModule,
     StarRatingModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   entryComponents: [
     RatingDialog,
-    AddPersonalDialog
+    AddPersonalDialog,
+    SnackyComponent
   ],
   providers: [ 
   ServiceServicesService,

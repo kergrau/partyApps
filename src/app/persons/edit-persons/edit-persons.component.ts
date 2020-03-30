@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import list from 'src/app/list.json';
 import { Person} from '../person';
 import { PersonService } from 'src/app/web-services/person.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-persons',
@@ -11,15 +12,22 @@ import { PersonService } from 'src/app/web-services/person.service';
 export class EditPersonsComponent implements OnInit {
 
   private persons: Person = new Person();
-  constructor(private perService: PersonService) { }
+  constructor(private perService: PersonService, private snackBar: MatSnackBar) { }
 
   hide = true;
   
-  Update(){
+  SnackyUpdate(){
+    this.snackBar.open('Updated', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snacky']
+    });
+  }
 
+  Update(){
     this.perService.editPerson(this.persons)
     .subscribe(data => {
-      alert("Updated")
+      this.SnackyUpdate();
     });
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from 'src/app/web-services/employee.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form-employees',
@@ -11,12 +12,21 @@ import { Router } from '@angular/router';
 export class FormEmployeesComponent implements OnInit {
 
   private employees: Employee = new Employee();
-  constructor(private empService: EmployeeService, private router: Router) { }
+  constructor(private empService: EmployeeService, private router: Router,
+    private snackBar: MatSnackBar) { }
+
+  SnackyCreate(){
+    this.snackBar.open('Created', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snacky']
+    });
+  }
 
   Create(){
     this.empService.createEmployee(this.employees).subscribe(
       data => {
-        alert("Created");
+        this.SnackyCreate();
         this.router.navigate(['list-employees']);
       }
     );

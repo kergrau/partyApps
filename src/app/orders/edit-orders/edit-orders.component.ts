@@ -6,6 +6,7 @@ import { ServiceServicesService } from 'src/app/web-services/service-services.se
 import { OrderService} from 'src/app/web-services/order.service';
 import { Service } from 'src/app/services/service';
 import * as L from 'node_modules/leaflet';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-orders',
@@ -22,7 +23,7 @@ export class EditOrdersComponent implements OnInit {
   
 
   constructor(private ordService: OrderService, private serService: ServiceServicesService,
-    private router: Router) { }
+    private router: Router, private snackBar: MatSnackBar) { }
 
     private initMap(): void {
       this.map = L.map('mymap', {
@@ -40,10 +41,18 @@ export class EditOrdersComponent implements OnInit {
       }).addTo(this.map);
     }
 
+    SnackyUpdate(){
+      this.snackBar.open('Updated', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+        panelClass: ['snacky']
+      });
+    }
+
   Update(){
     this.ordService.editOrder(this.orders)
     .subscribe(data => {
-      alert("Updated")
+      this.SnackyUpdate();
       this.router.navigate(['list-orders']);
     });
   }

@@ -3,6 +3,7 @@ import { Service } from '../service';
 import { Router } from '@angular/router';
 import { ServiceServicesService } from '../../web-services/service-services.service';
 import list from 'src/app/list.json';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-service',
@@ -12,13 +13,22 @@ import list from 'src/app/list.json';
 export class EditServiceComponent implements OnInit {
 
   private services: Service = new Service();
-  constructor(private serService: ServiceServicesService, private router: Router) { }
+  constructor(private serService: ServiceServicesService, private router: Router,
+    private snackBar: MatSnackBar) { }
+
+  SnackyUpdate(){
+    this.snackBar.open('Updated', 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snacky']
+    });
+  }
 
   Update(){
 
     this.serService.editService(this.services)
     .subscribe(data => {
-      alert("Updated")
+      this.SnackyUpdate();
       this.router.navigate(['list-services']);
     });
   }
