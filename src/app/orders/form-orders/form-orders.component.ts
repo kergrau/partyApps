@@ -4,6 +4,7 @@ import { ServiceServicesService } from 'src/app/web-services/service-services.se
 import { OrderService } from 'src/app/web-services/order.service';
 import * as L from 'node_modules/leaflet';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/web-services/auth.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
 export class FormOrdersComponent implements AfterViewInit {
   
   constructor(private serService: ServiceServicesService,
-    private ordService: OrderService, private router: Router) { }
+    private ordService: OrderService, private router: Router,
+    private authService:AuthService) { }
   
   private map;
     
@@ -39,7 +41,8 @@ export class FormOrdersComponent implements AfterViewInit {
   orders = {
     serviceid: 0,
     latitude: "",
-    longitude: ""
+    longitude: "",
+    clientid: 0
   };
 
   private marker;
@@ -58,6 +61,7 @@ export class FormOrdersComponent implements AfterViewInit {
   Create(){
     this.orders.latitude = this.marker.getLatLng().lat;
     this.orders.longitude = this.marker.getLatLng().lng;
+    this.orders.clientid = this.authService.getIdPerson(this.authService.token);
     this.ordService.createOrder(this.orders).subscribe(
       data => {
         alert("Created");
@@ -86,7 +90,6 @@ export class FormOrdersComponent implements AfterViewInit {
     this.serService.getListServices().subscribe(
       data => {
         this.services = data;
-        console.log(this.services);
       }
     );
       

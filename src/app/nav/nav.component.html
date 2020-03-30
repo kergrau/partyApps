@@ -4,8 +4,9 @@
     <ul class="ul">
       <li *ngIf="authService.hasRole('ROLE_ADMIN')"><app-menu></app-menu></li>
       <li>{{ title }}</li>
-      <li><button mat-button class="outline title" routerLink="/form-orders" >Order</button></li>
-      <li><button mat-button class="outline title" routerLink="/my-orders" >MyOrders</button></li>
+      <li *ngIf="authService.hasRole('ROLE_USER')">
+        <button mat-button class="outline title" routerLink="/form-orders" >Order</button>
+      </li>
     </ul>
 
     <div class="flex-spacer"></div>
@@ -21,6 +22,7 @@
       </span>
     </button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/my-orders">MyOrders</button>
       <button mat-menu-item (click)="logout()">
         Sign out
       </button>

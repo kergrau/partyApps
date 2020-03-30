@@ -2,6 +2,7 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrderService } from 'src/app/web-services/order.service'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AuthService } from 'src/app/web-services/auth.service';
 
 
 export interface DialogData {
@@ -15,13 +16,16 @@ export interface DialogData {
 })
 export class MyOrdersComponent implements OnInit {
 
-  constructor(private ordService: OrderService, public dialog: MatDialog) { }
+  constructor(private ordService: OrderService, public dialog: MatDialog,
+    private authService: AuthService) { }
 
   displayedColumns: string[] = ['No', 'id', 'serviceid', 'Actions'];
   dataSource = new MatTableDataSource();
 
   listActiveOrder(){
-    this.ordService.listActiveOrdersById(14).subscribe(
+    let id = this.authService.getIdPerson(this.authService.token);
+
+    this.ordService.listActiveOrdersById(id).subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
       }

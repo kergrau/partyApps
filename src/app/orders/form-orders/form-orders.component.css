@@ -1,7 +1,7 @@
 @import "~leaflet/dist/leaflet.css";
 
 .m-card {
-  max-width: calc(98% - 60px);
+  max-width: calc(98% - 100px);
   margin: auto;
   padding: 0px, 0px, 25px, 0px;
   margin-top: 20px;
@@ -42,5 +42,5 @@
 #mymap {
   height: 380px;
   width: 870px;
-  align-items: center;
+  margin: auto;
 }

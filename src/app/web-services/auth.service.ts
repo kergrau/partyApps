@@ -84,8 +84,12 @@ export class AuthService {
     }
   }
 
+  getIdPerson(accessToken: string){
+    return this.getPayload(accessToken).id;
+  }
+
   isAuthenticated(): boolean {
-    console.log(this.token);
+    
     let payload = this.getPayload(this.token);
     if(payload != null && payload.user_name && payload.user_name.length > 0){
       return true;
