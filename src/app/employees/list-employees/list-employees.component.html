@@ -45,7 +45,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   
   </table>
-
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   <br>
   
   <button class="bt-create" mat-flat-button color="primary" routerLink="/form-employees"> 

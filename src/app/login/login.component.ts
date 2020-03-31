@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.persons).subscribe(
       response =>{
-        console.log(response);
         let payload = JSON.parse(atob(response.access_token.split(".")[1]));
         this.authService.savePerson(response.access_token);
         this.authService.saveToken(response.access_token);

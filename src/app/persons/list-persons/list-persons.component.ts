@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import list from 'src/app/list.json';
 import { Router } from '@angular/router';
 import { PersonService } from 'src/app/web-services/person.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -17,11 +18,13 @@ export class ListPersonsComponent implements OnInit {
   displayedColumns: string[] = ['No', 'name', 'surname', 'phone',
   'email', 'Actions'];
   dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
 
   ListAll(){
     this.perService.getlistAll().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }

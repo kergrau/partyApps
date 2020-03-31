@@ -1,9 +1,9 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrderService } from 'src/app/web-services/order.service'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthService } from 'src/app/web-services/auth.service';
-
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface DialogData {
   rating;
@@ -21,6 +21,7 @@ export class MyOrdersComponent implements OnInit {
 
   displayedColumns: string[] = ['No', 'id', 'serviceid', 'Actions'];
   dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
 
   listActiveOrder(){
     let id = this.authService.getIdPerson(this.authService.token);
@@ -28,6 +29,7 @@ export class MyOrdersComponent implements OnInit {
     this.ordService.listActiveOrdersById(id).subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }

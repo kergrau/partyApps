@@ -1,10 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { OrderService } from 'src/app/web-services/order.service';
 import { EmployeeService } from 'src/app/web-services/employee.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Orderemployee } from '../orderemployee';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface DialogData {
   employeeid;
@@ -23,12 +24,13 @@ export class ListOrdersComponent implements OnInit {
   displayedColumns: string[] = ['No', 'id', 'serviceid', 'Actions'];
   dataSource = new MatTableDataSource();
   private ord = []
-
+  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
 
   listActiveOrder(){
     this.ordService.listActiveOrders().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }

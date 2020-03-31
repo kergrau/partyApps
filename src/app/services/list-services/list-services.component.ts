@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceServicesService } from '../../web-services/service-services.service';
 import { MatTableDataSource } from '@angular/material/table';
 import list from 'src/app/list.json';
 import { Router } from '@angular/router';
-
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list-services',
@@ -16,11 +16,13 @@ export class ListServicesComponent implements OnInit {
 
   displayedColumns: string[] = ['No', 'name', 'Actions'];
   dataSource = new MatTableDataSource();
-  
+  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
+
   listAll(){
     this.serService.getListServices().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }

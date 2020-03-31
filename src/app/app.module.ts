@@ -46,6 +46,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { StarRatingModule } from 'angular-star-rating';
 
@@ -94,7 +95,8 @@ import { StarRatingModule } from 'angular-star-rating';
     MatSelectModule,
     StarRatingModule.forRoot(),
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   entryComponents: [
     RatingDialog,

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import list from 'src/app/list.json';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/web-services/employee.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list-employees',
@@ -20,10 +20,13 @@ export class ListEmployeesComponent implements OnInit {
   'email', 'Actions'];
   dataSource = new MatTableDataSource();
 
+  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
+
   ListAll(){
     this.empService.getListAll().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }
@@ -53,7 +56,7 @@ export class ListEmployeesComponent implements OnInit {
 
 
   ngOnInit() {
-  this.ListAll();
+    this.ListAll();
   }
 
 }
