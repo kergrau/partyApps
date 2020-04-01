@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
   persons: Person;
 
   constructor(private router: Router, private authService: AuthService,
-    private snackBar: MatSnackBar) { 
-    this.persons = new Person;
+              private snackBar: MatSnackBar) {
+    this.persons = new Person();
   }
 
   hide = true;
 
-  SnackyLogin(){
+  SnackyLogin() {
     this.snackBar.open('Welcome to partyApps', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -29,29 +29,29 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(){
-    if(this.persons.email == null || this.persons.password == null){
-      alert("Please check username or password fields");
+  login() {
+    if (this.persons.email == null || this.persons.password == null) {
+      alert('Please check username or password fields');
       return;
     }
     this.authService.login(this.persons).subscribe(
-      response =>{
-        let payload = JSON.parse(atob(response.access_token.split(".")[1]));
+      response => {
+        const payload = JSON.parse(atob(response.access_token.split('.')[1]));
         this.authService.savePerson(response.access_token);
         this.authService.saveToken(response.access_token);
         this.router.navigate(['/']);
         this.SnackyLogin();
       },
-      error =>{
-        if (error.status == 400){
-          alert("User or password wrong");
+      error => {
+        if (error.status === 400) {
+          alert('User or password wrong');
         }
       });
   }
 
   ngOnInit() {
-    if(this.authService.isAuthenticated()){
-      alert("signed in");
+    if (this.authService.isAuthenticated()) {
+      alert('signed in');
       this.router.navigate(['/']);
     }
   }

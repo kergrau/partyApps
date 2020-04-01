@@ -18,15 +18,17 @@ export interface DialogData {
 })
 export class ListOrdersComponent implements OnInit {
 
+  employeeid;
   constructor(private ordService: OrderService, private router: Router,
-    public dialog: MatDialog, private empService: EmployeeService) { }
+              public dialog: MatDialog,
+              private empService: EmployeeService) { }
 
   displayedColumns: string[] = ['No', 'id', 'serviceid', 'Actions'];
   dataSource = new MatTableDataSource();
-  private ord = []
-  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
+  private ord = [];
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  listActiveOrder(){
+  listActiveOrder() {
     this.ordService.listActiveOrders().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
@@ -35,37 +37,34 @@ export class ListOrdersComponent implements OnInit {
     );
   }
 
-  employeeid;
-  AddPersonal(element){
+
+  AddPersonal(element) {
     this.openDialog(element);
   }
 
   openDialog(element): void {
-    const dialogRef = this.dialog.open(AddPersonalDialog, {
+    const dialogRef = this.dialog.open(AddPersonalDialogComponent, {
       width: '250px',
       data: {employeeid: this.employeeid}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      //console.log('The dialog was closed');
-            
+
       result.forEach(item => {
-        //console.log(item);
-        let testorder: Orderemployee = new Orderemployee()
+        const testorder: Orderemployee = new Orderemployee();
         testorder.orderid = element.id;
         testorder.employeeid = item;
         this.ord.push(testorder);
-        
       });
-      //console.log(this.ord);
+
       this.ordService.assignPersonal(this.ord).subscribe(
         data => {
-          alert("Personal assigned");
+          alert('Personal assigned');
           this.router.navigate(['list-orders']);
         }
       );
     });
-    
+
   }
 
   ngOnInit() {
@@ -76,22 +75,22 @@ export class ListOrdersComponent implements OnInit {
 
 
 @Component({
-  selector: 'AddPersonal-dialog',
+  selector: 'app-add-personal-dialog',
   templateUrl: 'addpersonal-dialog.html',
 })
-export class AddPersonalDialog implements OnInit {
+export class AddPersonalDialogComponent implements OnInit {
 
+  emp;
   constructor(
-    public dialogRef: MatDialogRef<AddPersonalDialog>,
+    public dialogRef: MatDialogRef<AddPersonalDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private empService: EmployeeService) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
- 
-  emp;
-  ngOnInit(){
+
+  ngOnInit() {
     this.empService.getListAll().subscribe(
       result => {
         this.emp = result;

@@ -16,9 +16,9 @@ export class ListServicesComponent implements OnInit {
 
   displayedColumns: string[] = ['No', 'name', 'Actions'];
   dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  listAll(){
+  listAll() {
     this.serService.getListServices().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
@@ -27,15 +27,15 @@ export class ListServicesComponent implements OnInit {
     );
   }
 
-  Delete(element){
+  Delete(element) {
     this.serService.deleteService(element.id)
     .subscribe(data => {
-      alert("Deleted");
+      alert('Deleted');
       this.listAll();
     });
   }
 
-  Edit(element){
+  Edit(element) {
     list.push(element);
     this.router.navigate(['edit-services']);
   }

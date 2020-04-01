@@ -12,45 +12,20 @@ import { AuthService } from './auth.service';
 export class EmployeeService {
 
   constructor(private http: HttpClient, private router: Router,
-    private authService: AuthService) { }
+              private authService: AuthService) { }
 
-  private BaseUrl = "http://localhost:9090/employee";
+  private BaseUrl = 'http://localhost:9090/employee';
     private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-/*
-  private isUnauthorized(error): boolean{
-    if(error.status == 401){
-      if(this.authService.isAuthenticated()){
-        this.authService.logout();
-      }
-      this.router.navigate(['/login']);
-      return true;
-    }
 
-    if(error.status == 403){
-      alert("Denied Access")
-      //this.router.navigate(['/login']);
-      return true;
-    }
-    return false;
-  }
-
-  private addAuthorization(){
-    let token = this.authService.token;
-    if(token != null){
-      return this.httpHeaders.append('Authorization', 'Bearer ' + token);
-    }
-    return this.httpHeaders;
-  }
-*/
-  getListAll(): Observable<Employee[]>{
-    return this.http.get<Employee[]>(this.BaseUrl+"/listAll",
+  getListAll(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(this.BaseUrl + '/listAll',
      /*{headers: this.addAuthorization()}*/)/*.pipe(catchError(error => {
       this.isUnauthorized(error);
       return throwError(error);
     } ))*/;
   }
-  createEmployee(employee: Employee): Observable<Employee>{
-    return this.http.post<Employee>(this.BaseUrl+"/create", employee,
+  createEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(this.BaseUrl + '/create', employee,
       /*{headers: this.addAuthorization()}*/)/*.pipe(
       catchError(
         error => {
@@ -60,10 +35,10 @@ export class EmployeeService {
         }
       )
     )*/;
-      
+
   }
-  deleteEmployee(id): Observable<any>{
-    return this.http.delete<Employee>(this.BaseUrl+"/delete/"+id,
+  deleteEmployee(id): Observable<any> {
+    return this.http.delete<Employee>(this.BaseUrl + '/delete/' + id,
       /*{headers: this.addAuthorization()}*/)/*.pipe(
       catchError(
         error => {
@@ -74,8 +49,8 @@ export class EmployeeService {
       )
     )*/;
   }
-  updateEmployee(employee): Observable<Employee>{
-    return this.http.put<Employee>(this.BaseUrl+"/edit", employee,
+  updateEmployee(employee): Observable<Employee> {
+    return this.http.put<Employee>(this.BaseUrl + '/edit', employee,
     /*{headers: this.addAuthorization()}*/)/*.pipe(
       catchError(
         error => {

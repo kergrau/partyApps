@@ -11,33 +11,33 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  private BaseUrl = "http://localhost:9090/order";
+  private BaseUrl = 'http://localhost:9090/order';
 
-  listActiveOrders(){
-    return this.http.get<Order[]>(this.BaseUrl+"/listActive");
-  }
-  
-  listDesactiveOrders(){
-    return this.http.get<Order[]>(this.BaseUrl+"/listDesactive");
+  listActiveOrders() {
+    return this.http.get<Order[]>(this.BaseUrl + '/listActive');
   }
 
-  listActiveOrdersById(id){
-    return this.http.get<Order[]>(this.BaseUrl+"/listById/"+id);
+  listDesactiveOrders() {
+    return this.http.get<Order[]>(this.BaseUrl + '/listDesactive');
   }
 
-  createOrder(order){
-    return this.http.post<Order>(this.BaseUrl+"/create", order);
+  listActiveOrdersById(id) {
+    return this.http.get<Order[]>(this.BaseUrl + '/listById/' + id);
   }
 
-  editOrder(order){
-    return this.http.put<Order>(this.BaseUrl+"/edit", order);
+  createOrder(order) {
+    return this.http.post<Order>(this.BaseUrl + '/create', order);
   }
-  
-  closeOrder(order){
-    return this.http.put<Order>(this.BaseUrl+"/close", order);
+
+  editOrder(order) {
+    return this.http.put<Order>(this.BaseUrl + '/edit', order);
   }
-  
-  assignPersonal(orderemployee){
-    return this.http.post<Orderemployee[]>(this.BaseUrl+"/assign",orderemployee);
+
+  closeOrder(order) {
+    return this.http.put<Order>(this.BaseUrl + '/close', order);
+  }
+
+  assignPersonal(orderemployee) {
+    return this.http.post<Orderemployee[]>(this.BaseUrl + '/assign', orderemployee);
   }
 }

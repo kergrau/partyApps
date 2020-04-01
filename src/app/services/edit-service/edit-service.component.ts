@@ -13,10 +13,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditServiceComponent implements OnInit {
 
   private services: Service = new Service();
-  constructor(private serService: ServiceServicesService, private router: Router,
-    private snackBar: MatSnackBar) { }
+  constructor(private serService: ServiceServicesService,
+              private router: Router,
+              private snackBar: MatSnackBar) { }
 
-  SnackyUpdate(){
+  SnackyUpdate() {
     this.snackBar.open('Updated', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -24,7 +25,7 @@ export class EditServiceComponent implements OnInit {
     });
   }
 
-  Update(){
+  Update() {
 
     this.serService.editService(this.services)
     .subscribe(data => {
@@ -34,12 +35,11 @@ export class EditServiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     list.forEach(element => {
       this.services = {
         id: element.id,
         name: element.name
-      }
+      };
     });
   }
 

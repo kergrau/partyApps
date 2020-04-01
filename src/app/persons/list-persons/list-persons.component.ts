@@ -18,9 +18,9 @@ export class ListPersonsComponent implements OnInit {
   displayedColumns: string[] = ['No', 'name', 'surname', 'phone',
   'email', 'Actions'];
   dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  ListAll(){
+  ListAll() {
     this.perService.getlistAll().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
@@ -29,9 +29,9 @@ export class ListPersonsComponent implements OnInit {
     );
   }
 
-  Edit(element){
+  Edit(element) {
     list.push(element);
-    this.router.navigate(["edit-persons"]);
+    this.router.navigate(['edit-persons']);
   }
 
   ngOnInit() {

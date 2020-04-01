@@ -14,15 +14,15 @@ import { MatPaginator } from '@angular/material/paginator';
 export class ListEmployeesComponent implements OnInit {
 
   constructor(private router: Router, private empService: EmployeeService,
-    private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) { }
 
   displayedColumns: string[] = ['No', 'name', 'surname', 'phone',
-  'email', 'Actions'];
+    'email', 'Actions'];
   dataSource = new MatTableDataSource();
 
-  @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
+  @ViewChild(MatPaginator, {static : true}) paginator: MatPaginator;
 
-  ListAll(){
+  ListAll() {
     this.empService.getListAll().subscribe(
       data => {
         this.dataSource = new MatTableDataSource(data);
@@ -31,7 +31,7 @@ export class ListEmployeesComponent implements OnInit {
     );
   }
 
-  SnackyDelete(){
+  SnackyDelete() {
     this.snackBar.open('Deleted', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -39,18 +39,18 @@ export class ListEmployeesComponent implements OnInit {
     });
   }
 
-  Delete(element){
+  Delete(element) {
     this.empService.deleteEmployee(element.id).subscribe(
       data => {
         this.SnackyDelete();
         this.ListAll();
       }
-    )
+    );
   }
 
-  Edit(element){
+  Edit(element) {
     list.push(element);
-    this.router.navigate(["edit-employees"]);
+    this.router.navigate(['edit-employees']);
   }
 
 

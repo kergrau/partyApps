@@ -10,24 +10,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router,
-    private snackBar: MatSnackBar) { }
+  title = 'PartyApps';
 
-  SnackyLogout(){
+  constructor(private authService: AuthService, private router: Router,
+              private snackBar: MatSnackBar) { }
+
+  SnackyLogout() {
     this.snackBar.open('You have signed out', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
       panelClass: ['snacky']
     });
   }
-  
-  logout(){
+
+  logout() {
     this.authService.logout();
-    this.SnackyLogout()
+    this.SnackyLogout();
     this.router.navigate(['/']);
   }
 
-  title = 'PartyApps'
   ngOnInit() {
   }
 

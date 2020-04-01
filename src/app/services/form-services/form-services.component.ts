@@ -12,10 +12,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class FormServicesComponent implements OnInit {
 
   private services: Service = new Service();
-  constructor(private serService: ServiceServicesService, private router: Router,
-    private snackBar: MatSnackBar) { }
+  constructor(private serService: ServiceServicesService,
+              private router: Router,
+              private snackBar: MatSnackBar) { }
 
-  SnackyCreated(){
+  SnackyCreated() {
     this.snackBar.open('Created', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -23,7 +24,7 @@ export class FormServicesComponent implements OnInit {
     });
   }
 
-  Create(){
+  Create() {
 
     this.serService.createService(this.services)
     .subscribe(data => {

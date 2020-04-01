@@ -13,9 +13,9 @@ export class FormEmployeesComponent implements OnInit {
 
   private employees: Employee = new Employee();
   constructor(private empService: EmployeeService, private router: Router,
-    private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) { }
 
-  SnackyCreate(){
+  SnackyCreate() {
     this.snackBar.open('Created', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -23,7 +23,7 @@ export class FormEmployeesComponent implements OnInit {
     });
   }
 
-  Create(){
+  Create() {
     this.empService.createEmployee(this.employees).subscribe(
       data => {
         this.SnackyCreate();

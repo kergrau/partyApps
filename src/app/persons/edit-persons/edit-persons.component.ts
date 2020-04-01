@@ -11,14 +11,12 @@ import { AuthService } from 'src/app/web-services/auth.service';
   styleUrls: ['./edit-persons.component.css']
 })
 export class EditPersonsComponent implements OnInit {
-
+  hide = true;
   private persons: Person = new Person();
   constructor(private perService: PersonService, private snackBar: MatSnackBar,
-    private authService: AuthService) { }
+              private authService: AuthService) { }
 
-  hide = true;
-  
-  SnackyUpdate(){
+  SnackyUpdate() {
     this.snackBar.open('Updated', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -26,7 +24,7 @@ export class EditPersonsComponent implements OnInit {
     });
   }
 
-  Update(){
+  Update() {
     this.perService.editPerson(this.persons)
     .subscribe(data => {
       this.SnackyUpdate();
@@ -44,7 +42,7 @@ export class EditPersonsComponent implements OnInit {
         password: element.password,
         admin: element.admin,
         roles: element.roles
-      }
+      };
     });
   }
 

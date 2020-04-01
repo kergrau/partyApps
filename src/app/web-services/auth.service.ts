@@ -12,46 +12,45 @@ export class AuthService {
   private _person: Person;
   private _token: string;
 
-  public get person(): Person{
+  public get person(): Person {
     if (this._person != null) {
       return this._person;
-      
-    } else if(sessionStorage.getItem('person') != null) {
+
+    } else if (sessionStorage.getItem('person') != null) {
 
         this._person = JSON.parse(sessionStorage.getItem('person')) as Person;
         return this._person;
     }
 
-    return new Person;
+    return new Person();
   }
 
-  public get token(): string{
+  public get token(): string {
     if (this._token != null) {
       return this._token;
-      
-    } else if(sessionStorage.getItem('token') != null) {
 
+    } else if (sessionStorage.getItem('token') != null) {
         this._token = sessionStorage.getItem('token');
         return this._token;
     }
-    
+
     return null;
   }
 
   constructor(private http: HttpClient) { }
 
-  private BaseUrl = "http://localhost:9090/oauth/token";
+  private BaseUrl = 'http://localhost:9090/oauth/token';
   private credentials = btoa('partyApp' + ':' + '123456');
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
   'Authorization': 'Basic ' + this.credentials});
 
-  login(person: Person): Observable<any>{
-    const BaseUrl = "http://localhost:9090/oauth/token";
+  login(person: Person): Observable<any> {
+    const BaseUrl = 'http://localhost:9090/oauth/token';
     const credentials = btoa('partyApp' + ':' + '123456');
     const httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': 'Basic ' + credentials});
 
-    let params = new URLSearchParams();
+    const params = new URLSearchParams();
     params.set('grant_type', 'password');
     params.set('username', person.email);
     params.set('password', person.password);
@@ -60,7 +59,7 @@ export class AuthService {
   }
 
   savePerson(accessToken: string) {
-    let payload = this.getPayload(accessToken);
+    const payload = this.getPayload(accessToken);
     this._person = new Person();
     this._person.name = payload.name;
     this._person.surname = payload.surname;
@@ -77,27 +76,25 @@ export class AuthService {
 
   getPayload(accessToken: string): any {
     if (accessToken != null) {
-      return JSON.parse(atob(accessToken.split(".")[1]));  
+      return JSON.parse(atob(accessToken.split('.')[1]));
     }
-    else {
-      return null;
-    }
+    return null;
   }
 
-  getIdPerson(accessToken: string){
+  getIdPerson(accessToken: string) {
     return this.getPayload(accessToken).id;
   }
 
   isAuthenticated(): boolean {
-    
-    let payload = this.getPayload(this.token);
-    if(payload != null && payload.user_name && payload.user_name.length > 0){
+    const payload = this.getPayload(this.token);
+    if (payload != null && payload.user_name &&
+       payload.user_name.length > 0) {
       return true;
     }
     return false;
   }
 
-  logout(){
+  logout() {
     this._token = null;
     this._person = null;
     sessionStorage.clear();
@@ -105,8 +102,8 @@ export class AuthService {
     sessionStorage.removeItem('token');
   }
 
-  hasRole(role: string): boolean{
-    if(this.person.roles.includes(role)){
+  hasRole(role: string): boolean {
+    if (this.person.roles.includes(role)) {
       return true;
     }
     return false;

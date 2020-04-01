@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../person';
-import { PersonService } from 'src/app/web-services/person.service'
+import { PersonService } from 'src/app/web-services/person.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -14,10 +14,10 @@ export class FormPersonsComponent implements OnInit {
   hide = true;
   private persons: Person = new Person();
   constructor(private perService: PersonService, private router: Router,
-    private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) { }
 
 
-  SnackyCreated(){
+  SnackyCreated() {
     this.snackBar.open('You Signed up successfully', 'Close', {
       duration: 3000,
       verticalPosition: 'top',
@@ -25,13 +25,13 @@ export class FormPersonsComponent implements OnInit {
     });
   }
 
-  Create(){
+  Create() {
     this.perService.createPerson(this.persons).subscribe(
       data => {
         this.SnackyCreated();
-        this.router.navigate(["/"]);
+        this.router.navigate(['/']);
       }
-    )
+    );
   }
 
   ngOnInit() {

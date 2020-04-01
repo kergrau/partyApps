@@ -8,18 +8,18 @@ import { Service } from '../services/service';
 export class ServiceServicesService {
 
   constructor(private http: HttpClient) { }
-  private BaseUrl = "http://localhost:9090/service";
+  private BaseUrl = 'http://localhost:9090/service';
 
-  getListServices(){
-    return this.http.get<Service[]>(this.BaseUrl+"/listAll");
+  getListServices() {
+    return this.http.get<Service[]>(this.BaseUrl + '/listAll');
   }
-  createService(service){
-    return this.http.post<Service>(this.BaseUrl+"/create", service);
+  createService(service) {
+    return this.http.post<Service>(this.BaseUrl + '/create', service);
   }
-  deleteService(id){
-    return this.http.delete<Service>(this.BaseUrl+"/delete/"+id);
+  deleteService(id) {
+    return this.http.delete<Service>(this.BaseUrl + '/delete/' + id);
   }
-  editService(service){
-    return this.http.put<Service>(this.BaseUrl+"/edit", service);
+  editService(service) {
+    return this.http.put<Service>(this.BaseUrl + '/edit', service);
   }
 }

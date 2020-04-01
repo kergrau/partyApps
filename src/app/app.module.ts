@@ -24,10 +24,9 @@ import { FormPersonsComponent } from './persons/form-persons/form-persons.compon
 import { EditPersonsComponent } from './persons/edit-persons/edit-persons.component';
 import { ListPersonsComponent } from './persons/list-persons/list-persons.component';
 import { FormOrdersComponent } from './orders/form-orders/form-orders.component';
-import { ListOrdersComponent, AddPersonalDialog } from './orders/list-orders/list-orders.component';
+import { ListOrdersComponent, AddPersonalDialogComponent } from './orders/list-orders/list-orders.component';
 import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component';
-import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
-import { RatingDialog } from './orders/my-orders/my-orders.component';
+import { MyOrdersComponent, RatingDialogComponent } from './orders/my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
@@ -41,10 +40,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
@@ -70,11 +69,11 @@ import { StarRatingModule } from 'angular-star-rating';
     ListOrdersComponent,
     EditOrdersComponent,
     MyOrdersComponent,
-    RatingDialog,
-    AddPersonalDialog,
+    RatingDialogComponent,
+    AddPersonalDialogComponent,
     LoginComponent,
     SnackyComponent
- 
+
   ],
   imports: [
     BrowserModule,
@@ -99,11 +98,11 @@ import { StarRatingModule } from 'angular-star-rating';
     MatPaginatorModule
   ],
   entryComponents: [
-    RatingDialog,
-    AddPersonalDialog,
+    RatingDialogComponent,
+    AddPersonalDialogComponent,
     SnackyComponent
   ],
-  providers: [ 
+  providers: [
   ServiceServicesService,
   PersonService,
   EmployeeService,

@@ -14,9 +14,9 @@ export class EditEmployeesComponent implements OnInit {
 
   private employees: Employee = new Employee();
   constructor(private empService: EmployeeService, private router: Router,
-    private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) { }
 
-    SnackyUpdate(){
+    SnackyUpdate() {
       this.snackBar.open('Updated', 'Close', {
         duration: 3000,
         verticalPosition: 'top',
@@ -24,7 +24,7 @@ export class EditEmployeesComponent implements OnInit {
       });
     }
 
-  Update(){
+  Update() {
     this.empService.updateEmployee(this.employees)
     .subscribe(data => {
       this.SnackyUpdate();
@@ -40,7 +40,7 @@ export class EditEmployeesComponent implements OnInit {
         surname: element.surname,
         phone: element.phone,
         email: element.email
-      }
+      };
     });
   }
 

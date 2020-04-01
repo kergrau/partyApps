@@ -8,15 +8,15 @@ import { Person } from 'src/app/persons/person';
 export class PersonService {
 
   constructor(private http: HttpClient) { }
-  private BaseUrl = "http://localhost:9090/person";
+  private BaseUrl = 'http://localhost:9090/person';
 
-  createPerson(person){
-    return this.http.post<Person>(this.BaseUrl+"/create", person);
+  createPerson(person) {
+    return this.http.post<Person>(this.BaseUrl + '/create', person);
   }
-  editPerson(person){
-    return this.http.put<Person>(this.BaseUrl+"/edit", person);
+  editPerson(person) {
+    return this.http.put<Person>(this.BaseUrl + '/edit', person);
   }
-  getlistAll(){
-    return this.http.get<Person[]>(this.BaseUrl+"/listPerson");
+  getlistAll() {
+    return this.http.get<Person[]>(this.BaseUrl + '/listPerson');
   }
 }
