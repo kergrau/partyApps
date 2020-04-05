@@ -15,7 +15,7 @@
         </mat-form-field>
       </p>
 
-      <p>
+      <p class="marout">
         <mat-form-field class="inp-register" appearance="legacy">
           <mat-label>Password</mat-label>
             <input [(ngModel)]="persons.password" matInput 
@@ -27,7 +27,10 @@
         </mat-form-field>
       </p>
     </form>
+    <a id="signup" routerLink="/form-persons">Sign Up</a>
   </mat-card-content>
+
+  <br>
 
   <mat-card-actions class="m-card-act">
     <button class="btn-reg btn-can" mat-raised-button routerLink="/">Cancel</button>

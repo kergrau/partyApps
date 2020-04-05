@@ -29,7 +29,7 @@
 }
 
 .m-card-act {
-  text-align: center;
+  text-align: right;
   padding: 0px;
   padding-top: 5px;
 }
@@ -39,4 +39,16 @@
   padding: 0px 22px;
 }
 
+#signup{
+  margin-top: 0px;
+  margin-left: 50px;
+  font-size: 13px;
+  color: #629ace;
+}
 
+.marout{
+  margin-bottom: 0px;
+}
+a:link{
+  text-decoration: none;
+}

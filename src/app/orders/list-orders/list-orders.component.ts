@@ -6,6 +6,7 @@ import { EmployeeService } from 'src/app/web-services/employee.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Orderemployee } from '../orderemployee';
 import { MatPaginator } from '@angular/material/paginator';
+import list from 'src/app/list.json';
 
 export interface DialogData {
   employeeid;
@@ -65,6 +66,11 @@ export class ListOrdersComponent implements OnInit {
       );
     });
 
+  }
+
+  Edit(element) {
+    list.push(element);
+    this.router.navigate(['/edit-orders'])
   }
 
   ngOnInit() {

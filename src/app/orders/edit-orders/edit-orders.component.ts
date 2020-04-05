@@ -19,7 +19,7 @@ export class EditOrdersComponent implements OnInit {
   private services: Service[];
   private map;
   private marker;
-  private selected;
+
 
 
   constructor(private ordService: OrderService,
@@ -55,6 +55,8 @@ export class EditOrdersComponent implements OnInit {
     }
 
   Update() {
+    this.orders.latitude = this.marker.getLatLng().lat;
+    this.orders.longitude = this.marker.getLatLng().lng;
     this.ordService.editOrder(this.orders)
     .subscribe(data => {
       this.SnackyUpdate();
@@ -73,12 +75,13 @@ export class EditOrdersComponent implements OnInit {
         latitude: element.latitude,
         longitude: element.longitude
       };
+      //this.selected = this.orders.serviceid.toString();
+      //console.log(this.selected);
     });
 
     this.serService.getListServices().subscribe(
       data => {
         this.services = data;
-        console.log(this.services);
       }
     );
 

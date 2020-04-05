@@ -28,6 +28,7 @@ export class EditPersonsComponent implements OnInit {
     this.perService.editPerson(this.persons)
     .subscribe(data => {
       this.SnackyUpdate();
+      
     });
   }
 

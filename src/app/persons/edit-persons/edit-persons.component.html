@@ -37,17 +37,6 @@
         </mat-form-field>
       </p>
 
-      <p>
-        <mat-form-field class="inp-register" appearance="legacy">
-          <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" name="password"
-            [(ngModel)]="persons.password" required>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-        </mat-form-field>
-      </p>
-
     </form>
   </mat-card-content>
 

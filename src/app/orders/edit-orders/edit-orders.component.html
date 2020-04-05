@@ -8,12 +8,11 @@
       <p>
         <mat-form-field>
           <mat-label>Select an service</mat-label>
-          <mat-select [(ngModel)]="orders.serviceid" name="serviceid" required>
-            <mat-option *ngFor="let service of services" value={{service.id}}>{{service.name}}</mat-option>
+          <mat-select [(value)]="orders.serviceid" [(ngModel)]="orders.serviceid" name="serviceid" required>
+            <mat-option *ngFor="let service of services" [value]="service.id">{{service.name}}</mat-option>
           </mat-select>
         </mat-form-field>
-      </p>   
-  
+      </p>
        <div id="mymap"></div>
 
     </form>
