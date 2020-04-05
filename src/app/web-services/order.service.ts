@@ -11,7 +11,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  private BaseUrl = 'http://localhost:9090/order';
+  private BaseUrl = 'https://protected-beyond-58088.herokuapp.com/order';
 
   listActiveOrders() {
     return this.http.get<Order[]>(this.BaseUrl + '/listActive');

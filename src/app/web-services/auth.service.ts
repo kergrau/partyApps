@@ -39,13 +39,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  private BaseUrl = 'http://localhost:9090/oauth/token';
+  private BaseUrl = 'https://protected-beyond-58088.herokuapp.com/oauth/token';
   private credentials = btoa('partyApp' + ':' + '123456');
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
   'Authorization': 'Basic ' + this.credentials});
 
   login(person: Person): Observable<any> {
-    const BaseUrl = 'http://localhost:9090/oauth/token';
+    const BaseUrl = 'https://protected-beyond-58088.herokuapp.com/oauth/token';
     const credentials = btoa('partyApp' + ':' + '123456');
     const httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
       'Authorization': 'Basic ' + credentials});

@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class FormPersonsComponent implements OnInit {
 
   hide = true;
-  private persons: Person = new Person();
+  public persons: Person = new Person();
   constructor(private perService: PersonService, private router: Router,
               private snackBar: MatSnackBar) { }
 

@@ -8,7 +8,7 @@ import { Service } from '../services/service';
 export class ServiceServicesService {
 
   constructor(private http: HttpClient) { }
-  private BaseUrl = 'http://localhost:9090/service';
+  private BaseUrl = 'https://protected-beyond-58088.herokuapp.com/service';
 
   getListServices() {
     return this.http.get<Service[]>(this.BaseUrl + '/listAll');

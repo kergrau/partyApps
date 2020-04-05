@@ -14,7 +14,7 @@ export class EmployeeService {
   constructor(private http: HttpClient, private router: Router,
               private authService: AuthService) { }
 
-  private BaseUrl = 'http://localhost:9090/employee';
+  private BaseUrl = 'https://protected-beyond-58088.herokuapp.com/employee';
     private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   getListAll(): Observable<Employee[]> {

@@ -8,7 +8,7 @@ import { Person } from 'src/app/persons/person';
 export class PersonService {
 
   constructor(private http: HttpClient) { }
-  private BaseUrl = 'http://localhost:9090/person';
+  private BaseUrl = 'https://protected-beyond-58088.herokuapp.com/person';
 
   createPerson(person) {
     return this.http.post<Person>(this.BaseUrl + '/create', person);

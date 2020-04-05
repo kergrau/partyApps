@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
 
   title = 'PartyApps';
 
-  constructor(private authService: AuthService, private router: Router,
+  constructor(public authService: AuthService, private router: Router,
               private snackBar: MatSnackBar) { }
 
   SnackyLogout() {
