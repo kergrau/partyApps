@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditEmployeesComponent implements OnInit {
 
-  private employees: Employee = new Employee();
+  public employees: Employee = new Employee();
   constructor(private empService: EmployeeService, private router: Router,
               private snackBar: MatSnackBar) { }
 

@@ -15,8 +15,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditOrdersComponent implements OnInit {
 
-  private orders: Order = new Order();
-  private services: Service[];
+  public orders: Order = new Order();
+  public services: Service[];
   private map;
   private marker;
 

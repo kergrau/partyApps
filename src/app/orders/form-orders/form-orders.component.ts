@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class FormOrdersComponent implements AfterViewInit {
 
-  private services: Service[];
+  public services: Service[];
   orders = {
     serviceid: 0,
     latitude: '',

@@ -12,9 +12,9 @@ import { AuthService } from 'src/app/web-services/auth.service';
 })
 export class EditPersonsComponent implements OnInit {
   hide = true;
-  private persons: Person = new Person();
+  public persons: Person = new Person();
   constructor(private perService: PersonService, private snackBar: MatSnackBar,
-              private authService: AuthService) { }
+              public authService: AuthService) { }
 
   SnackyUpdate() {
     this.snackBar.open('Updated', 'Close', {

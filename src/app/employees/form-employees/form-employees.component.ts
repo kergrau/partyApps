@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class FormEmployeesComponent implements OnInit {
 
-  private employees: Employee = new Employee();
+  public employees: Employee = new Employee();
   constructor(private empService: EmployeeService, private router: Router,
               private snackBar: MatSnackBar) { }
 

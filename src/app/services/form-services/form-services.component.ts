@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class FormServicesComponent implements OnInit {
 
-  private services: Service = new Service();
+  public services: Service = new Service();
   constructor(private serService: ServiceServicesService,
               private router: Router,
               private snackBar: MatSnackBar) { }

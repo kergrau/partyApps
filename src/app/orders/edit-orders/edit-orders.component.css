@@ -1,5 +1,3 @@
-@import "~leaflet/dist/leaflet.css";
-
 .m-card {
   max-width: calc(98% - 60px);
   margin: auto;
