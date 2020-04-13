@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { SnackyComponent } from './orders/form-orders/form-orders.component';
+import { HomeComponent } from './home/home.component';
 
 // Angular Material Component
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -47,6 +48,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -70,7 +72,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     RatingDialogComponent,
     AddPersonalDialogComponent,
     LoginComponent,
-    SnackyComponent
+    SnackyComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -92,7 +95,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSelectModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgbModule
   ],
   entryComponents: [
     RatingDialogComponent,

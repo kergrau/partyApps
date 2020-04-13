@@ -15,9 +15,11 @@ import { EditOrdersComponent } from './orders/edit-orders/edit-orders.component'
 import { MyOrdersComponent } from './orders/my-orders/my-orders.component';
 import { LoginComponent } from './login/login.component';
 import { RoleguardGuard } from './roleguard.guard';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
+  {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: 'list-services', component: ListServicesComponent,
    canActivate: [ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
   {path: 'form-services', component: FormServicesComponent,
@@ -43,8 +45,8 @@ const routes: Routes = [
    canActivate: [ RoleguardGuard], data: {role: 'ROLE_ADMIN'}},
   {path: 'my-orders', component: MyOrdersComponent,
    canActivate: [ RoleguardGuard], data: {role: 'ROLE_USER'}},
-  {path: 'login', component: LoginComponent}
-
+  {path: 'login', component: LoginComponent},
+  {path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -66,5 +68,6 @@ export const routingComponents = [
   ListOrdersComponent,
   EditOrdersComponent,
   MyOrdersComponent,
-  LoginComponent
+  LoginComponent,
+  HomeComponent
 ];

@@ -3,7 +3,9 @@
 
     <ul class="ul">
       <li *ngIf="authService.hasRole('ROLE_ADMIN')"><app-menu></app-menu></li>
-      <li>{{ title }}</li>
+      <li>
+        <button mat-button class="outline title" routerLink="/home">{{ title }}</button>
+      </li>
       <li *ngIf="authService.hasRole('ROLE_USER')">
         <button mat-button class="outline title" routerLink="/form-orders" >Order</button>
       </li>
